@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3b241c">
+  <title>The Café Table</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Shantell+Sans:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar" id="navbar">
+    <a class="brand" href="#home" aria-label="The Café Table home">
+      <span class="brand-mark">CT</span>
+      <span><strong>The Café Table</strong><small>Campus Kitchen</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#orders">My Orders</a>
+      <button class="cart-nav" id="cartOpen" type="button" aria-label="Open cart">
+        Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Fresh from our campus kitchen</p>
+        <h1>Good Food.<br><em>Better Breaks.</em></h1>
+        <p class="hero-lead">Thoughtfully prepared Indian favourites, quick bites and comforting classics—made for the moments between lectures.</p>
+        <a class="primary-btn" href="#menu">Explore the Menu <span>→</span></a>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="hero-image-frame">
+          <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=1000&q=85" alt="Indian meal served at a café table">
+          <span class="image-caption">Made fresh · Daily</span>
+        </div>
+        <div class="hero-stamp" aria-hidden="true"><span>THE</span><strong>CAFÉ</strong><span>TABLE</span></div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">The daily selection</p>
+          <h2>What are you craving?</h2>
+        </div>
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search dishes..." aria-label="Search dishes">
+        </label>
+      </div>
+      <div class="category-filters reveal" id="categoryFilters" aria-label="Menu categories"></div>
+      <div class="menu-grid" id="menuGrid"></div>
+      <p class="no-results" id="noResults" hidden>No dishes found. Try another search.</p>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-image reveal">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=85" alt="Warm and welcoming café interior">
+      </div>
+      <div class="about-copy reveal">
+        <p class="eyebrow">Our little ritual</p>
+        <h2>Good food, made to bring people together.</h2>
+        <p>The Café Table is your everyday pause—a warm corner for quick breakfasts, long conversations and well-earned coffee breaks.</p>
+        <div class="about-details">
+          <div><strong>Fresh</strong><span>Prepared in small batches</span></div>
+          <div><strong>Honest</strong><span>Quality ingredients, fair prices</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="orders-section" id="orders">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">Your collection</p>
+          <h2>My Orders</h2>
+        </div>
+      </div>
+      <div class="orders-list reveal" id="ordersList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">
+      <span class="brand-mark">CT</span>
+      <div><strong>The Café Table</strong><p>Campus Kitchen · Est. 2026</p></div>
+    </div>
+    <p>Good food. Better breaks.</p>
+    <p>© 2026 The Café Table</p>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-header">
+      <div><p class="eyebrow">Your selection</p><h2>My Cart</h2></div>
+      <button class="icon-btn" id="cartClose" type="button" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter">
+      <div class="subtotal"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
+      <button class="checkout-btn" id="checkoutBtn" type="button">Continue to Checkout <span>→</span></button>
+    </div>
+  </aside>
+
+  <div class="checkout-modal" id="checkoutModal" aria-hidden="true">
+    <div class="checkout-panel">
+      <button class="icon-btn checkout-close" id="checkoutClose" type="button" aria-label="Close checkout">×</button>
+      <div class="checkout-view" id="checkoutView">
+        <p class="eyebrow">Almost yours</p>
+        <h2>Complete your order</h2>
+        <form id="checkoutForm" novalidate>
+          <div class="form-row">
+            <label>Student name<input id="studentName" type="text" placeholder="Enter your name" required></label>
+            <label>Registration number<input id="registration" type="text" placeholder="e.g. 2026CS101" required></label>
+          </div>
+          <div class="payment-options">
+            <p>Payment method</p>
+            <label class="payment-option"><input type="radio" name="payment" value="UPI Demo" checked><span><strong>UPI Demo</strong><small>Simulated payment</small></span></label>
+            <label class="payment-option"><input type="radio" name="payment" value="Cash at Counter"><span><strong>Cash at Counter</strong><small>Pay when you collect</small></span></label>
+          </div>
+          <div class="checkout-summary">
+            <h3>Order summary</h3>
+            <div id="checkoutSummary"></div>
+            <div class="checkout-total"><span>Total</span><strong id="checkoutTotal">₹0</strong></div>
+          </div>
+          <p class="form-error" id="formError"></p>
+          <button class="confirm-btn" type="submit">Confirm Order <span>→</span></button>
+        </form>
+      </div>
+      <div class="processing-view" id="processingView" hidden>
+        <div class="processing-spinner"></div>
+        <h2>Preparing your order</h2>
+        <p>Processing your demo payment...</p>
+      </div>
+      <div class="success-view" id="successView" hidden></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
