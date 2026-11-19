@@ -4,24 +4,24 @@
 // ============================================================================
 
 const menuItems = [
-  {id:1, fig:"FIG. 01", jp:"黄金煎餅", name:"Masala Dosa", category:"Indian", description:"Crisp fermented rice crepe stuffed with fragrant spiced potato mash, served with slow-simmered sambar and fresh coconut chutney.", price:90, available:true, image:"https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=700&q=85"},
-  {id:2, fig:"FIG. 02", jp:"伝統豆腐", name:"Paneer Butter Masala", category:"Indian", description:"Handcrafted artisanal paneer simmered in a velvet tomato, cultured butter, and crushed fenugreek leaf emulsion.", price:180, available:true, image:"https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=85"},
-  {id:3, fig:"FIG. 03", jp:"香煎豆米", name:"Rajma Chawal", category:"Indian", description:"Overnight slow-braised Himalayan red kidney beans served over aged mountain basmati rice with pickled baby onions.", price:120, available:false, image:"images/rajma_chawal.jpg"},
-  {id:4, fig:"FIG. 04", jp:"揚麦豆包", name:"Chole Bhature", category:"Indian", description:"Slow-steeped spiced Punjabi chickpea gravy paired with puffed, golden sourdough bhature and spiced gooseberry.", price:110, available:true, image:"images/chole_bhature.jpg"},
-  {id:5, fig:"FIG. 05", jp:"香ばし麺", name:"Veg Hakka Noodles", category:"Chinese", description:"High-heat wok-tossed wheat noodles, shredded scallions, crisp spring greens, white pepper, and toasted sesame oil.", price:130, available:true, image:"https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=85"},
-  {id:6, fig:"FIG. 06", jp:"辛味豆腐", name:"Chilli Paneer", category:"Chinese", description:"Crispy wok-tossed cottage cheese tossed with charred bell peppers, scallion whites, and roasted mountain chili glaze.", price:160, available:true, image:"images/chilli_paneer.webp"},
-  {id:7, fig:"FIG. 07", jp:"五目炒飯", name:"Veg Fried Rice", category:"Chinese", description:"Aged fragrant jasmine rice tossed in seasoned wok oil with seasonal vegetables, ginger shreds, and toasted aromatics.", price:125, available:false, image:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=85"},
-  {id:8, fig:"FIG. 08", jp:"特製菜包", name:"Classic Veg Burger", category:"Fast Food", description:"Handcrafted crisp golden vegetable patty, crisp leaf lettuce, vine tomatoes, and signature Ryokan umami emulsion.", price:95, available:true, image:"https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=700&q=85"},
-  {id:9, fig:"FIG. 09", jp:"香草挟み", name:"Margherita Sandwich", category:"Fast Food", description:"Toasted artisanal sourdough loaf layered with sweet vine tomatoes, melted whole-milk mozzarella, and fresh basil leaf pesto.", price:140, available:true, image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=85"},
-  {id:10, fig:"FIG. 10", jp:"辛香揚芋", name:"Peri Peri Fries", category:"Fast Food", description:"Triple-cooked Russet potato batons dusted in fiery bird's eye chili, sweet paprika, and wild herb sea salt seasoning.", price:85, available:true, image:"images/peri_peri_fries.avif"},
-  {id:11, fig:"FIG. 11", jp:"三角揚包", name:"Samosa Platter", category:"Snacks", description:"Flaky carom-seed pastry pyramids stuffed with spiced pea and potato confit, served with date-tamarind and mint chutney.", price:60, available:true, image:"https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=85"},
-  {id:12, fig:"FIG. 12", jp:"浪花野菜", name:"Pav Bhaji", category:"Snacks", description:"Decadent spiced vegetable purée finished with clarified cultured butter, served alongside lightly toasted brioche buns.", price:100, available:true, image:"https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=700&q=85"},
-  {id:13, fig:"FIG. 13", jp:"冷製珈琲", name:"Cold Coffee", category:"Beverages", description:"Slow-extracted mountain Arabica espresso shaken over ice with creamy whole milk and crowned with velvety microfoam.", price:90, available:true, image:"https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=85"},
-  {id:14, fig:"FIG. 14", jp:"香辛料茶", name:"Masala Chai", category:"Beverages", description:"Hand-plucked Nilgiri black tea leaves slow-boiled with whole crushed green cardamom, ginger root, milk, and cloves.", price:35, available:true, image:"https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=700&q=85"},
-  {id:15, fig:"FIG. 15", jp:"柑橘炭酸", name:"Fresh Lime Soda", category:"Beverages", description:"Freshly pressed Kagzi lime juice charged with effervescent soda, Himalayan black salt, and crystalline rock sugar.", price:55, available:false, image:"images/fresh_lime_soda.jpg"},
-  {id:16, fig:"FIG. 16", jp:"蜜団子", name:"Gulab Jamun", category:"Desserts", description:"Delicate evaporated milk dumplings poached in warm organic rose water, saffron strands, and green cardamom syrup.", price:70, available:true, image:"images/gulab_jamun.jpg"},
-  {id:17, fig:"FIG. 17", jp:"濃厚甘味", name:"Chocolate Brownie", category:"Desserts", description:"Dense single-origin 70% dark cocoa fudge slice studded with toasted walnuts and finished with warm chocolate ganache.", price:110, available:true, image:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=85"},
-  {id:18, fig:"FIG. 18", jp:"氷冷果菓", name:"Kesar Pista Kulfi", category:"Desserts", description:"Traditional slow-reduced mountain milk ice cream infused with Kashmiri saffron threads and chopped green pistachios.", price:80, available:false, image:"images/kesar_pista_kulfi.jpg"}
+  { id: 1, fig: "FIG. 01", jp: "黄金煎餅", name: "Masala Dosa", category: "Indian", description: "Crisp fermented rice crepe stuffed with fragrant spiced potato mash, served with slow-simmered sambar and fresh coconut chutney.", price: 90, available: true, image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=700&q=85" },
+  { id: 2, fig: "FIG. 02", jp: "伝統豆腐", name: "Paneer Butter Masala", category: "Indian", description: "Handcrafted artisanal paneer simmered in a velvet tomato, cultured butter, and crushed fenugreek leaf emulsion.", price: 180, available: true, image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=85" },
+  { id: 3, fig: "FIG. 03", jp: "香煎豆米", name: "Rajma Chawal", category: "Indian", description: "Overnight slow-braised Himalayan red kidney beans served over aged mountain basmati rice with pickled baby onions.", price: 120, available: false, image: "images/rajma_chawal.jpg" },
+  { id: 4, fig: "FIG. 04", jp: "揚麦豆包", name: "Chole Bhature", category: "Indian", description: "Slow-steeped spiced Punjabi chickpea gravy paired with puffed, golden sourdough bhature and spiced gooseberry.", price: 110, available: true, image: "images/chole_bhature.jpg" },
+  { id: 5, fig: "FIG. 05", jp: "香ばし麺", name: "Veg Hakka Noodles", category: "Chinese", description: "High-heat wok-tossed wheat noodles, shredded scallions, crisp spring greens, white pepper, and toasted sesame oil.", price: 130, available: true, image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=85" },
+  { id: 6, fig: "FIG. 06", jp: "辛味豆腐", name: "Chilli Paneer", category: "Chinese", description: "Crispy wok-tossed cottage cheese tossed with charred bell peppers, scallion whites, and roasted mountain chili glaze.", price: 160, available: true, image: "images/chilli_paneer.webp" },
+  { id: 7, fig: "FIG. 07", jp: "五目炒飯", name: "Veg Fried Rice", category: "Chinese", description: "Aged fragrant jasmine rice tossed in seasoned wok oil with seasonal vegetables, ginger shreds, and toasted aromatics.", price: 125, available: false, image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=85" },
+  { id: 8, fig: "FIG. 08", jp: "特製菜包", name: "Classic Veg Burger", category: "Fast Food", description: "Handcrafted crisp golden vegetable patty, crisp leaf lettuce, vine tomatoes, and signature Ryokan umami emulsion.", price: 95, available: true, image: "https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=700&q=85" },
+  { id: 9, fig: "FIG. 09", jp: "香草挟み", name: "Margherita Sandwich", category: "Fast Food", description: "Toasted artisanal sourdough loaf layered with sweet vine tomatoes, melted whole-milk mozzarella, and fresh basil leaf pesto.", price: 140, available: true, image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=85" },
+  { id: 10, fig: "FIG. 10", jp: "辛香揚芋", name: "Peri Peri Fries", category: "Fast Food", description: "Triple-cooked Russet potato batons dusted in fiery bird's eye chili, sweet paprika, and wild herb sea salt seasoning.", price: 85, available: true, image: "images/peri_peri_fries.avif" },
+  { id: 11, fig: "FIG. 11", jp: "三角揚包", name: "Samosa Platter", category: "Snacks", description: "Flaky carom-seed pastry pyramids stuffed with spiced pea and potato confit, served with date-tamarind and mint chutney.", price: 60, available: true, image: "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=85" },
+  { id: 12, fig: "FIG. 12", jp: "浪花野菜", name: "Pav Bhaji", category: "Snacks", description: "Decadent spiced vegetable purée finished with clarified cultured butter, served alongside lightly toasted brioche buns.", price: 100, available: true, image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=700&q=85" },
+  { id: 13, fig: "FIG. 13", jp: "冷製珈琲", name: "Cold Coffee", category: "Beverages", description: "Slow-extracted mountain Arabica espresso shaken over ice with creamy whole milk and crowned with velvety microfoam.", price: 90, available: true, image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=85" },
+  { id: 14, fig: "FIG. 14", jp: "香辛料茶", name: "Masala Chai", category: "Beverages", description: "Hand-plucked Nilgiri black tea leaves slow-boiled with whole crushed green cardamom, ginger root, milk, and cloves.", price: 35, available: true, image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=700&q=85" },
+  { id: 15, fig: "FIG. 15", jp: "柑橘炭酸", name: "Fresh Lime Soda", category: "Beverages", description: "Freshly pressed Kagzi lime juice charged with effervescent soda, Himalayan black salt, and crystalline rock sugar.", price: 55, available: false, image: "images/fresh_lime_soda.jpg" },
+  { id: 16, fig: "FIG. 16", jp: "蜜団子", name: "Gulab Jamun", category: "Desserts", description: "Delicate evaporated milk dumplings poached in warm organic rose water, saffron strands, and green cardamom syrup.", price: 70, available: true, image: "images/gulab_jamun.jpg" },
+  { id: 17, fig: "FIG. 17", jp: "濃厚甘味", name: "Chocolate Brownie", category: "Desserts", description: "Dense single-origin 70% dark cocoa fudge slice studded with toasted walnuts and finished with warm chocolate ganache.", price: 110, available: true, image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=85" },
+  { id: 18, fig: "FIG. 18", jp: "氷冷果菓", name: "Kesar Pista Kulfi", category: "Desserts", description: "Traditional slow-reduced mountain milk ice cream infused with Kashmiri saffron threads and chopped green pistachios.", price: 80, available: false, image: "images/kesar_pista_kulfi.jpg" }
 ];
 
 const categories = ["All", "Indian", "Chinese", "Fast Food", "Snacks", "Beverages", "Desserts"];
@@ -70,7 +70,7 @@ function protectImage(image, category) {
     image.src = fallbackImage(category);
     image.classList.add("image-fallback");
   };
-  image.addEventListener("error", useFallback, {once: true});
+  image.addEventListener("error", useFallback, { once: true });
   if (image.complete && image.naturalWidth === 0) useFallback();
 }
 
@@ -215,7 +215,7 @@ menuGrid.addEventListener("click", event => {
       existing.quantity++;
       showToast(`${item.name} quantity updated (${existing.quantity})`);
     } else {
-      cart.push({...item, quantity: 1});
+      cart.push({ ...item, quantity: 1 });
       showToast(`${item.name} added to cart`);
     }
   } else if (action === "card-decrease") {
@@ -403,8 +403,8 @@ if (checkoutForm) {
         id: orderId,
         name,
         registration,
-        items: cart.map(item => ({name:item.name, quantity:item.quantity, price:item.price})),
-        date: new Date().toLocaleString("en-IN", {dateStyle:"medium", timeStyle:"short"}),
+        items: cart.map(item => ({ name: item.name, quantity: item.quantity, price: item.price })),
+        date: new Date().toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" }),
         amount: cartTotal(),
         payment
       };
@@ -517,7 +517,7 @@ const observer = new IntersectionObserver(entries => {
       observer.unobserve(entry.target);
     }
   });
-}, {threshold: 0.12});
+}, { threshold: 0.12 });
 document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
 
 window.addEventListener("scroll", () => {
