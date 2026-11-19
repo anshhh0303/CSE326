@@ -1,6 +1,6 @@
 /* ==========================================================================
-   THE CAFÉ TABLE · KOMOREBI (木漏れ日) RYOKAN REGISTER STYLESHEET
-   A considered Japanese editorial aesthetic: Washi paper, Sumi ink & Sakura
+   THE CAFÉ TABLE · ARTISAN CAFÉ & CAMPUS DINING STYLESHEET
+   A considered warm editorial aesthetic: Cream paper, Sumi ink & Sakura
    ========================================================================== */
 
 :root {
@@ -1573,7 +1573,7 @@ img {
 }
 
 /* ==========================================================================
-   CHECKOUT MODAL (Ryokan Registration Style)
+   CHECKOUT MODAL (Café Checkout Style)
    ========================================================================== */
 .checkout-modal {
   position: fixed;
@@ -1870,7 +1870,7 @@ img {
   margin: 0 0 6px;
 }
 
-/* Digital Receipt with Ryokan Stamp */
+/* Digital Receipt with Café Seal */
 .receipt {
   margin: 20px auto;
   padding: 22px;

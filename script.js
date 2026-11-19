@@ -1,27 +1,27 @@
 // ============================================================================
-// THE CAFÉ TABLE RYOKAN — SCRIPT ENGINE
+// THE CAFÉ TABLE — SCRIPT ENGINE
 // Preserves complete cafeteria order workflow & adds ambient sakura aesthetic
 // ============================================================================
 
 const menuItems = [
-  { id: 1, fig: "FIG. 01", jp: "黄金煎餅", name: "Masala Dosa", category: "Indian", description: "Crisp fermented rice crepe stuffed with fragrant spiced potato mash, served with slow-simmered sambar and fresh coconut chutney.", price: 90, available: true, image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=700&q=85" },
-  { id: 2, fig: "FIG. 02", jp: "伝統豆腐", name: "Paneer Butter Masala", category: "Indian", description: "Handcrafted artisanal paneer simmered in a velvet tomato, cultured butter, and crushed fenugreek leaf emulsion.", price: 180, available: true, image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=85" },
-  { id: 3, fig: "FIG. 03", jp: "香煎豆米", name: "Rajma Chawal", category: "Indian", description: "Overnight slow-braised Himalayan red kidney beans served over aged mountain basmati rice with pickled baby onions.", price: 120, available: false, image: "images/rajma_chawal.jpg" },
-  { id: 4, fig: "FIG. 04", jp: "揚麦豆包", name: "Chole Bhature", category: "Indian", description: "Slow-steeped spiced Punjabi chickpea gravy paired with puffed, golden sourdough bhature and spiced gooseberry.", price: 110, available: true, image: "images/chole_bhature.jpg" },
-  { id: 5, fig: "FIG. 05", jp: "香ばし麺", name: "Veg Hakka Noodles", category: "Chinese", description: "High-heat wok-tossed wheat noodles, shredded scallions, crisp spring greens, white pepper, and toasted sesame oil.", price: 130, available: true, image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=85" },
-  { id: 6, fig: "FIG. 06", jp: "辛味豆腐", name: "Chilli Paneer", category: "Chinese", description: "Crispy wok-tossed cottage cheese tossed with charred bell peppers, scallion whites, and roasted mountain chili glaze.", price: 160, available: true, image: "images/chilli_paneer.webp" },
-  { id: 7, fig: "FIG. 07", jp: "五目炒飯", name: "Veg Fried Rice", category: "Chinese", description: "Aged fragrant jasmine rice tossed in seasoned wok oil with seasonal vegetables, ginger shreds, and toasted aromatics.", price: 125, available: false, image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=85" },
-  { id: 8, fig: "FIG. 08", jp: "特製菜包", name: "Classic Veg Burger", category: "Fast Food", description: "Handcrafted crisp golden vegetable patty, crisp leaf lettuce, vine tomatoes, and signature Ryokan umami emulsion.", price: 95, available: true, image: "https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=700&q=85" },
-  { id: 9, fig: "FIG. 09", jp: "香草挟み", name: "Margherita Sandwich", category: "Fast Food", description: "Toasted artisanal sourdough loaf layered with sweet vine tomatoes, melted whole-milk mozzarella, and fresh basil leaf pesto.", price: 140, available: true, image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=85" },
-  { id: 10, fig: "FIG. 10", jp: "辛香揚芋", name: "Peri Peri Fries", category: "Fast Food", description: "Triple-cooked Russet potato batons dusted in fiery bird's eye chili, sweet paprika, and wild herb sea salt seasoning.", price: 85, available: true, image: "images/peri_peri_fries.avif" },
-  { id: 11, fig: "FIG. 11", jp: "三角揚包", name: "Samosa Platter", category: "Snacks", description: "Flaky carom-seed pastry pyramids stuffed with spiced pea and potato confit, served with date-tamarind and mint chutney.", price: 60, available: true, image: "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=85" },
-  { id: 12, fig: "FIG. 12", jp: "浪花野菜", name: "Pav Bhaji", category: "Snacks", description: "Decadent spiced vegetable purée finished with clarified cultured butter, served alongside lightly toasted brioche buns.", price: 100, available: true, image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=700&q=85" },
-  { id: 13, fig: "FIG. 13", jp: "冷製珈琲", name: "Cold Coffee", category: "Beverages", description: "Slow-extracted mountain Arabica espresso shaken over ice with creamy whole milk and crowned with velvety microfoam.", price: 90, available: true, image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=85" },
-  { id: 14, fig: "FIG. 14", jp: "香辛料茶", name: "Masala Chai", category: "Beverages", description: "Hand-plucked Nilgiri black tea leaves slow-boiled with whole crushed green cardamom, ginger root, milk, and cloves.", price: 35, available: true, image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=700&q=85" },
-  { id: 15, fig: "FIG. 15", jp: "柑橘炭酸", name: "Fresh Lime Soda", category: "Beverages", description: "Freshly pressed Kagzi lime juice charged with effervescent soda, Himalayan black salt, and crystalline rock sugar.", price: 55, available: false, image: "images/fresh_lime_soda.jpg" },
-  { id: 16, fig: "FIG. 16", jp: "蜜団子", name: "Gulab Jamun", category: "Desserts", description: "Delicate evaporated milk dumplings poached in warm organic rose water, saffron strands, and green cardamom syrup.", price: 70, available: true, image: "images/gulab_jamun.jpg" },
-  { id: 17, fig: "FIG. 17", jp: "濃厚甘味", name: "Chocolate Brownie", category: "Desserts", description: "Dense single-origin 70% dark cocoa fudge slice studded with toasted walnuts and finished with warm chocolate ganache.", price: 110, available: true, image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=85" },
-  { id: 18, fig: "FIG. 18", jp: "氷冷果菓", name: "Kesar Pista Kulfi", category: "Desserts", description: "Traditional slow-reduced mountain milk ice cream infused with Kashmiri saffron threads and chopped green pistachios.", price: 80, available: false, image: "images/kesar_pista_kulfi.jpg" }
+  { id: 1, fig: "FIG. 01", tag: "Crisp Special", name: "Masala Dosa", category: "Indian", description: "Crisp fermented rice crepe stuffed with fragrant spiced potato mash, served with slow-simmered sambar and fresh coconut chutney.", price: 90, available: true, image: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=700&q=85" },
+  { id: 2, fig: "FIG. 02", tag: "Chef Special", name: "Paneer Butter Masala", category: "Indian", description: "Handcrafted artisanal paneer simmered in a velvet tomato, cultured butter, and crushed fenugreek leaf emulsion.", price: 180, available: true, image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=700&q=85" },
+  { id: 3, fig: "FIG. 03", tag: "Homestyle", name: "Rajma Chawal", category: "Indian", description: "Overnight slow-braised Himalayan red kidney beans served over aged mountain basmati rice with pickled baby onions.", price: 120, available: false, image: "images/rajma_chawal.jpg" },
+  { id: 4, fig: "FIG. 04", tag: "Classic", name: "Chole Bhature", category: "Indian", description: "Slow-steeped spiced Punjabi chickpea gravy paired with puffed, golden sourdough bhature and spiced gooseberry.", price: 110, available: true, image: "images/chole_bhature.jpg" },
+  { id: 5, fig: "FIG. 05", tag: "Wok Tossed", name: "Veg Hakka Noodles", category: "Chinese", description: "High-heat wok-tossed wheat noodles, shredded scallions, crisp spring greens, white pepper, and toasted sesame oil.", price: 130, available: true, image: "https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=85" },
+  { id: 6, fig: "FIG. 06", tag: "Spicy", name: "Chilli Paneer", category: "Chinese", description: "Crispy wok-tossed cottage cheese tossed with charred bell peppers, scallion whites, and roasted mountain chili glaze.", price: 160, available: true, image: "images/chilli_paneer.webp" },
+  { id: 7, fig: "FIG. 07", tag: "Aromatic", name: "Veg Fried Rice", category: "Chinese", description: "Aged fragrant jasmine rice tossed in seasoned wok oil with seasonal vegetables, ginger shreds, and toasted aromatics.", price: 125, available: false, image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=700&q=85" },
+  { id: 8, fig: "FIG. 08", tag: "House Special", name: "Classic Veg Burger", category: "Fast Food", description: "Handcrafted crisp golden vegetable patty, crisp leaf lettuce, vine tomatoes, and signature house special sauce.", price: 95, available: true, image: "https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=700&q=85" },
+  { id: 9, fig: "FIG. 09", tag: "Artisan", name: "Margherita Sandwich", category: "Fast Food", description: "Toasted artisanal sourdough loaf layered with sweet vine tomatoes, melted whole-milk mozzarella, and fresh basil leaf pesto.", price: 140, available: true, image: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=85" },
+  { id: 10, fig: "FIG. 10", tag: "Crispy", name: "Peri Peri Fries", category: "Fast Food", description: "Triple-cooked Russet potato batons dusted in fiery bird's eye chili, sweet paprika, and wild herb sea salt seasoning.", price: 85, available: true, image: "images/peri_peri_fries.avif" },
+  { id: 11, fig: "FIG. 11", tag: "Street Classic", name: "Samosa Platter", category: "Snacks", description: "Flaky carom-seed pastry pyramids stuffed with spiced pea and potato confit, served with date-tamarind and mint chutney.", price: 60, available: true, image: "https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=700&q=85" },
+  { id: 12, fig: "FIG. 12", tag: "Rich & Savory", name: "Pav Bhaji", category: "Snacks", description: "Decadent spiced vegetable purée finished with clarified cultured butter, served alongside lightly toasted brioche buns.", price: 100, available: true, image: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=700&q=85" },
+  { id: 13, fig: "FIG. 13", tag: "Chilled Brew", name: "Cold Coffee", category: "Beverages", description: "Slow-extracted mountain Arabica espresso shaken over ice with creamy whole milk and crowned with velvety microfoam.", price: 90, available: true, image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=85" },
+  { id: 14, fig: "FIG. 14", tag: "Slow Brewed", name: "Masala Chai", category: "Beverages", description: "Hand-plucked Nilgiri black tea leaves slow-boiled with whole crushed green cardamom, ginger root, milk, and cloves.", price: 35, available: true, image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=700&q=85" },
+  { id: 15, fig: "FIG. 15", tag: "Refreshing", name: "Fresh Lime Soda", category: "Beverages", description: "Freshly pressed Kagzi lime juice charged with effervescent soda, Himalayan black salt, and crystalline rock sugar.", price: 55, available: false, image: "images/fresh_lime_soda.jpg" },
+  { id: 16, fig: "FIG. 16", tag: "Warm & Sweet", name: "Gulab Jamun", category: "Desserts", description: "Delicate evaporated milk dumplings poached in warm organic rose water, saffron strands, and green cardamom syrup.", price: 70, available: true, image: "images/gulab_jamun.jpg" },
+  { id: 17, fig: "FIG. 17", tag: "Decadent", name: "Chocolate Brownie", category: "Desserts", description: "Dense single-origin 70% dark cocoa fudge slice studded with toasted walnuts and finished with warm chocolate ganache.", price: 110, available: true, image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=85" },
+  { id: 18, fig: "FIG. 18", tag: "Traditional", name: "Kesar Pista Kulfi", category: "Desserts", description: "Traditional slow-reduced mountain milk ice cream infused with Kashmiri saffron threads and chopped green pistachios.", price: 80, available: false, image: "images/kesar_pista_kulfi.jpg" }
 ];
 
 const categories = ["All", "Indian", "Chinese", "Fast Food", "Snacks", "Beverages", "Desserts"];
@@ -125,19 +125,19 @@ function renderMenu() {
     const inCart = cart.find(c => c.id === item.id);
     const currentQty = inCart ? inCart.quantity : 0;
     const figTag = item.fig || `FIG. ${String(index + 1).padStart(2, "0")}`;
-    const kanjiTag = item.jp || "厳選";
+    const foodTag = item.tag || "Fresh";
 
     return `
       <article class="food-card ${item.available ? "" : "unavailable"} entering" style="animation-delay:${index * 45}ms">
         <div class="food-image">
-          <span class="card-fig-tag">${figTag} / 旬</span>
+          <span class="card-fig-tag">${figTag} / FRESH</span>
           <img src="${item.image}" alt="${escapeHtml(item.name)}" loading="lazy">
-          ${item.available ? '<span class="availability">PREPARED FRESH</span>' : '<span class="unavailable-label">PREPARATION PAUSED</span>'}
+          ${item.available ? '<span class="availability">AVAILABLE NOW</span>' : '<span class="unavailable-label">CURRENTLY SOLD OUT</span>'}
         </div>
         <div class="food-info">
           <div class="food-meta-row">
             <span class="food-category">${escapeHtml(item.category)}</span>
-            <span class="food-kanji-tag">${kanjiTag}</span>
+            <span class="food-kanji-tag">${foodTag}</span>
           </div>
           <h3>${escapeHtml(item.name)}</h3>
           <p>${escapeHtml(item.description)}</p>
@@ -206,7 +206,7 @@ menuGrid.addEventListener("click", event => {
   const action = button.dataset.action;
   const item = menuItems.find(food => food.id === id);
   if (!item || !item.available) {
-    showToast("This culinary selection is currently paused");
+    showToast("This item is currently sold out");
     return;
   }
   const existing = cart.find(product => product.id === id);
@@ -261,7 +261,7 @@ function renderCart() {
 
   const checkoutBtn = document.getElementById("checkoutBtn");
   if (!cart.length) {
-    cartItems.innerHTML = '<div class="empty-cart"><div><span>🌸</span><strong>Your cart is empty</strong><p>Explore the culinary register to add selections.</p></div></div>';
+    cartItems.innerHTML = '<div class="empty-cart"><div><span>☕</span><strong>Your cart is empty</strong><p>Explore our menu to add your favorite dishes.</p></div></div>';
     if (checkoutBtn) {
       checkoutBtn.disabled = true;
       checkoutBtn.style.opacity = ".55";
@@ -426,11 +426,11 @@ function showSuccess(order) {
   success.hidden = false;
   success.innerHTML = `
     <div class="success-icon">✓</div>
-    <p class="eyebrow">ORDER CONFIRMED · 注文完了</p>
+    <p class="eyebrow">ORDER CONFIRMED · PREPARING FRESH</p>
     <h2>Thank you, ${escapeHtml(order.name)}!</h2>
-    <p>Your culinary request has been transmitted to the Ryokan preparation team.</p>
+    <p>Your order has been received by our kitchen staff and is being prepared fresh.</p>
     ${receiptHtml(order)}
-    <button class="primary-btn done-btn" type="button" id="doneBtn">Return to Register</button>
+    <button class="primary-btn done-btn" type="button" id="doneBtn">Return to Menu</button>
   `;
   document.getElementById("doneBtn").addEventListener("click", () => {
     closeCheckout();
@@ -448,8 +448,8 @@ function receiptHtml(order) {
     <div class="receipt-divider"></div>
     <div class="receipt-line"><span>Items Subtotal (${totalCount} item${totalCount === 1 ? "" : "s"})</span><strong>₹${order.amount}</strong></div>
     <div class="receipt-line"><span>Cafeteria / Extra charges</span><span>₹0 (Free)</span></div>
-    <div class="receipt-line total-line"><strong>Total Settled</strong><strong>₹${order.amount}</strong></div>
-    <div class="receipt-line"><span>Settlement Mode</span><span>${escapeHtml(order.payment)}</span></div>
+    <div class="receipt-line total-line"><strong>Total Paid</strong><strong>₹${order.amount}</strong></div>
+    <div class="receipt-line"><span>Payment Method</span><span>${escapeHtml(order.payment)}</span></div>
   </div>`;
 }
 
@@ -457,7 +457,7 @@ function renderOrders() {
   const list = document.getElementById("ordersList");
   if (!list) return;
   if (!orders.length) {
-    list.innerHTML = '<div class="empty-orders"><strong>No archived orders recorded</strong><p><a href="#menu">Visit the Ryokan register</a> to place your inaugural selection.</p></div>';
+    list.innerHTML = '<div class="empty-orders"><strong>No previous orders found</strong><p><a href="#menu">Visit the menu</a> to place your first order.</p></div>';
     return;
   }
   list.innerHTML = orders.map((order, index) => `
@@ -481,10 +481,10 @@ if (ordersList) {
     const success = document.getElementById("successView");
     success.hidden = false;
     success.innerHTML = `
-      <p class="eyebrow">ARCHIVED REGISTER RECEIPT · 過去の領収書</p>
+      <p class="eyebrow">ORDER RECEIPT · COMPLETED ORDER</p>
       <h2>Order Details</h2>
       ${receiptHtml(order)}
-      <p style="font-size:12px;color:var(--sumi-muted);margin:1rem 0;">Guest: ${escapeHtml(order.name)} · ID: ${escapeHtml(order.registration)}</p>
+      <p style="font-size:12px;color:var(--sumi-muted);margin:1rem 0;">Student: ${escapeHtml(order.name)} · ID: ${escapeHtml(order.registration)}</p>
       <button class="primary-btn done-btn" type="button" id="receiptDone">Dismiss</button>
     `;
     checkoutModal.classList.add("open");
@@ -523,7 +523,7 @@ document.querySelectorAll(".reveal").forEach(element => observer.observe(element
 window.addEventListener("scroll", () => {
   const navbar = document.getElementById("navbar");
   if (navbar) navbar.classList.toggle("scrolled", window.scrollY > 20);
-  const sections = ["home", "menu", "orders"];
+  const sections = ["home", "menu", "about", "orders"];
   let current = "home";
   sections.forEach(id => {
     const section = document.getElementById(id);
