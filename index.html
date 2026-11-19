@@ -1,141 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#3b241c">
-  <title>The Café Table</title>
+  <meta name="theme-color" content="#1f1c19">
+  <title>The Café Table — An Independent Register of Campus Repast</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Shantell+Sans:wght@600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Shippori+Mincho:wght@500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <!-- Ambient Falling Sakura Background Canvas -->
+  <canvas id="sakuraBgCanvas" class="sakura-bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Interactive Cursor Trail Canvas -->
+  <canvas id="sakuraCanvas" class="sakura-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Status Ticker (Reference Image Match) -->
+  <div class="top-ticker" role="region" aria-label="Ryokan Announcement Bar">
+    <div class="ticker-left">
+      <span class="status-dot"></span>
+      <span class="ticker-title">THE CAFÉ TABLE — AN INDEPENDENT REGISTER OF CAMPUS REPAST</span>
+    </div>
+    <div class="ticker-right">
+      <span class="ticker-quote">WHERE MINDFUL TRADITION MEETS ARTISAN CRAFT</span>
+      <span class="ticker-sep">›</span>
+      <span class="ticker-meta">HAKONE SLOPE ELEVATION: 420M</span>
+    </div>
+  </div>
+
+  <!-- Primary Header & Navigation Bar -->
   <header class="navbar" id="navbar">
     <a class="brand" href="#home" aria-label="The Café Table home">
-      <span class="brand-mark">CT</span>
-      <span><strong>The Café Table</strong><small>Campus Kitchen</small></span>
+      <span class="brand-monogram">CT</span>
+      <div class="brand-text">
+        <span class="brand-name"><strong>THE CAFÉ TABLE</strong></span>
+        <span class="brand-kanji">木漏れ日 · 喫茶部</span>
+      </div>
     </a>
+
     <nav class="nav-links" aria-label="Main navigation">
-      <a class="active" href="#home">Home</a>
-      <a href="#menu">Menu</a>
-      <a href="#orders">My Orders</a>
-      <button class="cart-nav" id="cartOpen" type="button" aria-label="Open cart">
-        Cart <span class="cart-count" id="cartCount">0</span>
-      </button>
+      <a class="nav-link active" href="#menu">Register</a>
+      <a class="nav-link" href="#about">Philosophy</a>
+      <a class="nav-link" href="#orders">Archive</a>
     </nav>
+
+    <div class="nav-actions">
+      <div class="ready-pill" aria-label="Kitchen readiness">
+        <span class="ready-badge">18 / 18 Ready</span>
+        <span class="ready-percent">(100%)</span>
+      </div>
+      <a class="priority-link" href="#orders">Priority Queue ↗</a>
+      <button class="cart-pill-btn" id="cartOpen" type="button" aria-label="Open cart">
+        <span>Cart</span>
+        <span class="cart-count-pill" id="cartCount">0</span>
+        <span class="arrow-glyph">↗</span>
+      </button>
+    </div>
   </header>
 
+  <!-- Editorial Metadata Strip (Reference Image Match) -->
+  <div class="meta-strip">
+    <span class="strip-item">AUTUMN REGISTER NO. 04 / 2026</span>
+    <span class="strip-item">AN INDEPENDENT EDIT OF RARE FLAVOURS &amp; CAMPUS SANCTUARIES</span>
+  </div>
+
   <main>
-    <section class="hero" id="home">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Fresh from our campus kitchen</p>
-        <h1>Good Food.<br><em>Better Breaks.</em></h1>
-        <p class="hero-lead">Thoughtfully prepared Indian favourites, quick bites and comforting classics—made for the moments between lectures.</p>
-        <a class="primary-btn" href="#menu">Explore the Menu <span>→</span></a>
-      </div>
-      <div class="hero-visual reveal">
-        <div class="hero-image-frame">
-          <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=1000&q=85" alt="Indian meal served at a café table">
-          <span class="image-caption">Made fresh · Daily</span>
+    <!-- Hero Sanctuary Section -->
+    <section class="hero-sanctuary" id="home">
+      <div class="hero-content reveal">
+        <p class="hero-eyebrow">— THE CAFÉ TABLE / A CONSIDERED SANCTUARY</p>
+        <h1 class="hero-title">
+          The art of<br>
+          hospitality lives<br>
+          in the <em>details.</em>
+        </h1>
+        <p class="hero-description">
+          Discover authentic Indian culinary traditions, wok-tossed Hakka noodles, slow-fermented dosas, and comforting
+          spiced chai—served with mindful hospitality in our peaceful campus sanctuary.
+        </p>
+        <div class="hero-cta-group">
+          <a class="btn-dark" href="#menu">Explore register ↗</a>
+          <a class="btn-subtle" href="#about">Discover turnovers</a>
         </div>
-        <div class="hero-stamp" aria-hidden="true"><span>THE</span><strong>CAFÉ</strong><span>TABLE</span></div>
+        <div class="hero-footnote">
+          <span class="footnote-glyph">※</span>
+          <div>
+            <strong>Curated with patience.</strong>
+            <p>Presented with intention across our campus kitchen</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Card Showcase (FIG. 001 from Reference Image) -->
+      <div class="hero-feature-card reveal">
+        <article class="showcase-card">
+          <div class="showcase-visual">
+            <span class="showcase-tag">FIG. 001 / THE ART OF READINESS</span>
+            <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=1000&q=85"
+              alt="Artisanal Masala Dosa served fresh" loading="lazy">
+          </div>
+          <div class="showcase-body">
+            <div class="showcase-header">
+              <div>
+                <h3 class="showcase-title">Suite 101 — Paneer Tikka <span class="kanji-accent">檜の</span></h3>
+                <span class="showcase-kanji">特室 · SIGNATURE CRUST</span>
+              </div>
+              <span class="showcase-audit-badge">UNDER SUPERVISOR AUDIT</span>
+            </div>
+            <div class="showcase-grid">
+              <div class="grid-cell">
+                <span class="cell-label">NEXT FRESH BATCH</span>
+                <strong class="cell-value">Continuous Griddle Turnaround</strong>
+              </div>
+              <div class="grid-cell">
+                <span class="cell-label">RECEPTION ETA</span>
+                <strong class="cell-value">Fresh within 5–8 mins</strong>
+              </div>
+              <div class="grid-cell">
+                <span class="cell-label">ATTENDANTS ASSIGNED</span>
+                <strong class="cell-value">Chef Ren &amp; Sora Hayashi</strong>
+              </div>
+              <div class="grid-cell">
+                <span class="cell-label">AUDIT PROTOCOL</span>
+                <strong class="cell-value">Step 5 of 6 (Gold Ghee Wagashi)</strong>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="menu-section" id="menu">
-      <div class="section-heading reveal">
-        <div>
-          <p class="eyebrow">The daily selection</p>
-          <h2>What are you craving?</h2>
+    <!-- Menu Register Section -->
+    <section class="menu-register-section" id="menu">
+      <div class="register-header-bar reveal">
+        <div class="register-title-area">
+          <h2 class="register-heading">The Café Table <span class="register-count-tag">[ 18 DISHES RECORDED ]</span></h2>
         </div>
-        <label class="search-box">
-          <span aria-hidden="true">⌕</span>
-          <input id="searchInput" type="search" placeholder="Search dishes..." aria-label="Search dishes">
+        <div class="register-meta-area">
+          <span>MOUNT HAKONE SLOPE</span>
+          <span class="meta-dot">·</span>
+          <span>4 KITCHEN WINGS MONITORED</span>
+        </div>
+      </div>
+
+      <!-- Filter Tabs & Search Bar Row (Reference Image Match) -->
+      <div class="register-controls-row reveal">
+        <div class="category-tabs-container" id="categoryFilters" aria-label="Menu categories"></div>
+        <label class="register-search-box">
+          <span class="search-icon" aria-hidden="true">🌸</span>
+          <input id="searchInput" type="search" placeholder="The Café Table — Search Dishes, Ingredients... ⌘K"
+            aria-label="Search dishes" autocomplete="off">
         </label>
       </div>
-      <div class="category-filters reveal" id="categoryFilters" aria-label="Menu categories"></div>
+
+      <!-- Food Item Cards Grid -->
       <div class="menu-grid" id="menuGrid"></div>
-      <p class="no-results" id="noResults" hidden>No dishes found. Try another search.</p>
+
+      <!-- Zero-match Empty State -->
+      <div class="no-results" id="noResults" hidden>
+        <span class="empty-icon">🍃</span>
+        <p>No dishes matching your query were discovered in the kitchen register.</p>
+        <button class="clear-filters-btn" id="clearSearchBtn" type="button">Reset Filters &amp; Show Full Register
+          ↗</button>
+      </div>
     </section>
 
+    <!-- Philosophy Section -->
     <section class="about-section" id="about">
-      <div class="about-image reveal">
-        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=85" alt="Warm and welcoming café interior">
+      <div class="about-visual reveal">
+        <span class="about-tag">FIG. 002 / RYOKAN PHILOSOPHY</span>
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=85"
+          alt="Peaceful cafe interior with soft natural light" loading="lazy">
       </div>
       <div class="about-copy reveal">
-        <p class="eyebrow">Our little ritual</p>
-        <h2>Good food, made to bring people together.</h2>
-        <p>The Café Table is your everyday pause—a warm corner for quick breakfasts, long conversations and well-earned coffee breaks.</p>
-        <div class="about-details">
-          <div><strong>Fresh</strong><span>Prepared in small batches</span></div>
-          <div><strong>Honest</strong><span>Quality ingredients, fair prices</span></div>
+        <p class="hero-eyebrow">OUR DAILY MINDFULNESS</p>
+        <h2>Good food, prepared to bring tranquility.</h2>
+        <p>The Café Table is inspired by the Ryokan philosophy of <em>Komorebi</em>—the interplay of sunlight filtering
+          through leaves, cultivating moments of quiet pause between demanding lectures and long study sessions.</p>
+        <div class="about-spec-grid">
+          <div class="spec-cell">
+            <span class="spec-num">01</span>
+            <strong>Small Batch Cooking</strong>
+            <p>Every sauce, crepe batter, and chai infusion is blended daily in mindful, balanced proportions.</p>
+          </div>
+          <div class="spec-cell">
+            <span class="spec-num">02</span>
+            <strong>Considered Pricing</strong>
+            <p>Honest campus nourishment at thoughtful, student-accessible rates with zero hidden fees.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Order Archive Section -->
     <section class="orders-section" id="orders">
-      <div class="section-heading reveal">
+      <div class="register-header-bar reveal">
         <div>
-          <p class="eyebrow">Your collection</p>
-          <h2>My Orders</h2>
+          <p class="hero-eyebrow">YOUR RECORDED TURNAROUNDS</p>
+          <h2 class="register-heading">The Order Archive <span class="register-count-tag">[ COMPLETED TRANSACTIONS
+              ]</span></h2>
         </div>
       </div>
       <div class="orders-list reveal" id="ordersList"></div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-brand">
-      <span class="brand-mark">CT</span>
-      <div><strong>The Café Table</strong><p>Campus Kitchen · Est. 2026</p></div>
+  <!-- Editorial Footer -->
+  <footer class="editorial-footer">
+    <div class="footer-primary">
+      <div class="footer-brand">
+        <span class="brand-monogram">CT</span>
+        <div>
+          <strong>The Café Table · 木漏れ日</strong>
+          <p>An Independent Campus Kitchen &amp; Register · Est. 2026</p>
+        </div>
+      </div>
+      <div class="footer-status-pill">
+        <span class="status-dot"></span>
+        <span>KITCHEN SANCTUARY STATUS: SERVING NORMALLY</span>
+      </div>
     </div>
-    <p>Good food. Better breaks.</p>
-    <p>© 2026 The Café Table</p>
+    <div class="footer-bottom">
+      <p>Mindful nourishment. Considered breaks.</p>
+      <p>© 2026 The Café Table. All rights reserved.</p>
+    </div>
   </footer>
 
+  <!-- Slide-out Shopping Cart Drawer -->
   <div class="overlay" id="overlay"></div>
   <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
     <div class="drawer-header">
-      <div><p class="eyebrow">Your selection</p><h2>My Cart</h2></div>
+      <div>
+        <p class="hero-eyebrow">RECORDED SELECTION</p>
+        <h2>My Cart <span class="kanji-accent">ご注文</span></h2>
+      </div>
       <button class="icon-btn" id="cartClose" type="button" aria-label="Close cart">×</button>
     </div>
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-footer" id="cartFooter">
-      <div class="subtotal"><span>Subtotal</span><strong id="cartSubtotal">₹0</strong></div>
-      <button class="checkout-btn" id="checkoutBtn" type="button">Continue to Checkout <span>→</span></button>
+      <div class="cart-breakdown">
+        <div class="breakdown-row"><span>Items Subtotal (<span id="cartItemCount">0</span>)</span><strong
+            id="cartItemsSubtotal">₹0</strong></div>
+        <div class="breakdown-row charges-row"><span>Cafeteria / Extra charges</span><span class="breakdown-free">₹0
+            (Complimentary)</span></div>
+        <div class="subtotal"><span>Total Payable</span><strong id="cartSubtotal">₹0</strong></div>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn" type="button">Proceed to Order Register <span>↗</span></button>
     </div>
   </aside>
 
+  <!-- Checkout Modal -->
   <div class="checkout-modal" id="checkoutModal" aria-hidden="true">
     <div class="checkout-panel">
       <button class="icon-btn checkout-close" id="checkoutClose" type="button" aria-label="Close checkout">×</button>
       <div class="checkout-view" id="checkoutView">
-        <p class="eyebrow">Almost yours</p>
+        <p class="hero-eyebrow">ORDER REGISTRATION</p>
         <h2>Complete your order</h2>
         <form id="checkoutForm" novalidate>
           <div class="form-row">
-            <label>Student name<input id="studentName" type="text" placeholder="Enter your name" required></label>
-            <label>Registration number<input id="registration" type="text" placeholder="e.g. 2026CS101" required></label>
+            <label>Student Full Name<input id="studentName" type="text" placeholder="e.g. Rahul Sharma"
+                required></label>
+            <label>Registration Number<input id="registration" type="text" placeholder="e.g. 2026CS101"
+                required></label>
           </div>
           <div class="payment-options">
-            <p>Payment method</p>
-            <label class="payment-option"><input type="radio" name="payment" value="UPI Demo" checked><span><strong>UPI Demo</strong><small>Simulated payment</small></span></label>
-            <label class="payment-option"><input type="radio" name="payment" value="Cash at Counter"><span><strong>Cash at Counter</strong><small>Pay when you collect</small></span></label>
+            <p>Settlement Method</p>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="UPI Demo" checked>
+              <span><strong>UPI Demo (Instant Verification)</strong><small>Simulated contactless payment</small></span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="Cash at Counter">
+              <span><strong>Cash Settlement at Counter</strong><small>Pay upon collection at Wing B</small></span>
+            </label>
           </div>
           <div class="checkout-summary">
-            <h3>Order summary</h3>
+            <h3>Order Summary Breakdown</h3>
             <div id="checkoutSummary"></div>
-            <div class="checkout-total"><span>Total</span><strong id="checkoutTotal">₹0</strong></div>
+            <div class="checkout-total"><span>Total Payable</span><strong id="checkoutTotal">₹0</strong></div>
           </div>
           <p class="form-error" id="formError"></p>
-          <button class="confirm-btn" type="submit">Confirm Order <span>→</span></button>
+          <button class="confirm-btn" type="submit">Confirm Order Register <span>↗</span></button>
         </form>
       </div>
       <div class="processing-view" id="processingView" hidden>
         <div class="processing-spinner"></div>
-        <h2>Preparing your order</h2>
-        <p>Processing your demo payment...</p>
+        <h2>Preparing your order register</h2>
+        <p>Mindfully verifying your demo transaction...</p>
       </div>
       <div class="success-view" id="successView" hidden></div>
     </div>
@@ -144,4 +301,5 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
 </body>
+
 </html>
